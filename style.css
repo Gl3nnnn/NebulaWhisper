@@ -1,0 +1,159 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff7e5f, #b1883d);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 18px;
+    background-color: rgba(218, 20, 20, 0.05);
+    box-shadow: 0px 5px 20px rgba(255, 0, 0, 0.2);
+    text-align: center;
+    transition: box-shadow 0.5s ease-in-out; /* Add transition effect */
+}
+
+/* Add glowing effect on hover */
+.container:hover {
+    box-shadow: 0px 5px 40px rgba(255, 0, 0, 0.4);
+    animation: glowing 2s infinite; /* Apply the glowing animation */
+}
+
+@keyframes glowing {
+    0% {
+        box-shadow: 0px 5px 20px rgba(255, 0, 0, 0.2);
+    }
+    50% {
+        box-shadow: 0px 5px 40px rgba(255, 0, 0, 0.4);
+    }
+    100% {
+        box-shadow: 0px 5px 20px rgba(255, 0, 0, 0.2);
+    }
+}
+
+/* Search box */
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out; /* Add this line for animation */
+}
+
+
+.search-box input[type="text"]::placeholder {
+    font-size: 14px; 
+    color: rgba(255, 255, 255, 0.6); 
+}
+
+.search-box input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.search-box button {
+    background-color: #FFA800;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-box button:hover {
+    background-color: #ff0000;
+}
+
+/* Weather details */
+.weather-box img {
+    width: 60%;
+    max-width: 200px;
+    margin: 20px 0;
+}
+
+.weather-box .temperature {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-top: 20px;
+}
+
+.description {
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.weather-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.humidity, .wind {
+    display: flex;
+    align-items: center;
+}
+
+.humidity i, .wind i {
+    font-size: 26px;
+    color: #FFA800;
+    margin-right: 10px;
+}
+
+.not-found img {
+    width: 100%;
+    max-width: 200px; /* Adjust the max-width to your preference */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any residual spacing */
+    margin: 0 auto 15px; /* Center the image horizontally and add some margin */
+}
+
+
+
+/* Media queries */
+@media (max-width: 576px) {
+    .search-box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .search-box input[type="text"] {
+        width: 100%;
+    }
+
+    .weather-details {
+        flex-direction: column;
+    }
+
+    /* Hide other sections */
+    .not-found,
+    .weather-box,
+    .weather-details {
+        display: none;
+    }
+}
